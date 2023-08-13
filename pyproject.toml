@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10.0,<3.11"
+numpy = "^1.22.2"
+Flask = "^2.2.0"
+firebase-admin = "^6.2.0"
+telebot = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+debugpy = "^1.6.2"
+urllib3 = "1.26.15"
+poetry = {url = "https://storage.googleapis.com/poetry-bundles/poetry-1.1.15-py2.py3-none-any.whl"}
+
+[tool.pyright]
+# https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+useLibraryCodeForTypes = true
+
+[tool.ruff]
+# https://beta.ruff.rs/docs/configuration/
+select = ['E', 'W', 'F', 'I', 'B', 'C4', 'ARG', 'SIM']
+ignore = ['W291', 'W292', 'W293']
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
