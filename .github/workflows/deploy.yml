@@ -28,7 +28,7 @@ jobs:
               run: 
                 python -m venv venv
                 source venv/bin/activate
-                python install -r requirements.txt
+                python -m pip install -r requirements.txt
             - name: Deploy to Firebase
               uses: w9jds/firebase-action@master
               with:
