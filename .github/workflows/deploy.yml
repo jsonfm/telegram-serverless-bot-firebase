@@ -40,12 +40,12 @@ jobs:
                 echo TELEBRAM_BOT_USERNAME=${{ secrets.TELEBRAM_BOT_USERNAME }} >> ./.env
 
                 echo WEBHOOK_URL=${{ secrets.WEBHOOK_URL }} >> ./.env
-                
+
             - name: Python Setup
               run: |
-                python -m venv venv
+                python3.11 -m venv venv
                 source venv/bin/activate
-                python -m pip install -r requirements.txt
+                python3.11 -m pip install -r requirements.txt
             - name: Deploy to Firebase
               uses: w9jds/firebase-action@master
               with:
