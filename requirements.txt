@@ -1,0 +1,4 @@
+firebase-admin
+firebase-functions
+pyTelegramBotAPI
+python-dotenv
