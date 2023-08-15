@@ -22,13 +22,11 @@ jobs:
 
             # Runs a single command using the runners shell
             # And of course we need to goto our functions folder to deploy
-            - name: Setup Firebase project
-              run: |
-                  firebase use --add "${{ secrets.FIREBASE_PROJECT_ID }}"
             # Deploying the functions to firebase
             - name: Deploy to Firebase
               uses: w9jds/firebase-action@master
               with:
                   args: deploy --only functions
               env:
+                  PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
                   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
