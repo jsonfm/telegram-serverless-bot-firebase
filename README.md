@@ -1,3 +1,7 @@
+<img
+    src="./docs/images/bot.png"
+/>
+
 ### 💬🤖 Telegram Bot
 
 Serverless with Firebase functions.
