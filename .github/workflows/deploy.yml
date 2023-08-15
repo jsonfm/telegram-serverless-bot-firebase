@@ -18,12 +18,29 @@ jobs:
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
 
             # Runs a single command using the runners shell
             # And of course we need to goto our functions folder to deploy
             # Deploying the functions to firebase
+            - name: Environment variables setup
+              run: |
+                echo FIRE_PROJECT_ID=${{ secrets.FIRE_PROJECT_ID }} >> ./.env
+                echo FIRE_PROJECT_KEY_ID=${{ secrets.FIRE_PROJECT_KEY_ID }} >> ./.env
+                echo FIRE_PRIVATE_KEY=${{ secrets.FIRE_PRIVATE_KEY }} >> ./.env
+                echo FIRE_CLIENT_EMAIL=${{ secrets.FIRE_CLIENT_EMAIL }} >> ./.env
+                echo FIRE_CLIENT_ID=${{ secrets.FFIRE_CLIENT_ID }} >> ./.env
+                echo FIRE_AUTH_URI=${{ secrets.FIRE_AUTH_URI }} >> ./.env
+                echo FIRE_TOKEN_URI=${{ secrets.FIRE_TOKEN_URI }} >> ./.env
+                echo FIRE_PROVIDER_X509_CERT_URL=${{ secrets.FIRE_PROVIDER_X509_CERT_URL }} >> ./.env
+                echo FIRE_CLIENT_X509_CERT_URL=${{ secrets.FIRE_CLIENT_X509_CERT_URL }} >> ./.env
+                echo FIRE_UNIVERSE_DOMAIN=${{ secrets.FIRE_UNIVERSE_DOMAIN }} >> ./.env
 
+                echo TELEGRAM_API_KEY=${{ secrets.TELEGRAM_API_KEY }} >> ./.env
+                echo TELEBRAM_BOT_USERNAME=${{ secrets.TELEBRAM_BOT_USERNAME }} >> ./.env
+
+                echo WEBHOOK_URL=${{ secrets.WEBHOOK_URL }} >> ./.env
+                
             - name: Python Setup
               run: |
                 python -m venv venv
