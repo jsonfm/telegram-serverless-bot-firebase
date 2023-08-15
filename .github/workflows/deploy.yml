@@ -23,6 +23,12 @@ jobs:
             # Runs a single command using the runners shell
             # And of course we need to goto our functions folder to deploy
             # Deploying the functions to firebase
+
+            - name: Python Setup
+              run: 
+                python -m venv venv
+                source venv/bin/activate
+                python install -r requirements.txt
             - name: Deploy to Firebase
               uses: w9jds/firebase-action@master
               with:
